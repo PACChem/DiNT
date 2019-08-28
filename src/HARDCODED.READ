@@ -1,0 +1,24 @@
+
+driver.f
+	extra termination conditions for SF stuff
+	call state
+
+getgrad.f
+	E0 CSDM parameter
+
+initmol.f -- REPLACED WITH INPUT FLAG
+	Fixed total energy or fixed vib+k2 energy
+
+ranj.F
+	J sampling style, classical or quantal
+
+readin.f
+	ldofrag
+
+ransamp.f
+	../r0 prefix to xyz and ppp files
+
+finalstate.f
+	turn on or off 3-atom analysis
+	turn on or off ldofrag
+
