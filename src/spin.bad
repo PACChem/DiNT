@@ -1,0 +1,69 @@
+      subroutine spin(xxm,ppm,nclu)
+
+c Randomly spin the AG around each Cartesian axis
+
+      implicit none
+      include 'param.f'
+      include 'c_ran.f'
+#include <sprng_f.h>
+
+      integer nclu
+      double precision xxm(3,mnat),ppm(3,mnat)
+
+c local
+      integer i
+      double precision ran,twopi,temp1,temp2,co,si
+
+      twopi=2.d0*dacos(-1.d0)
+
+c     spin around z
+      ran = sprng(rng_stream)
+      ran = ran*twopi
+      co = dcos(ran)
+      si = dsin(ran)
+      do i=1,nclu
+         temp1 = xxm(1,i)
+         temp2 = xxm(2,i)
+         xxm(1,i)=temp1*co+temp2*si
+         xxm(2,i)=temp2*co-temp1*si
+         temp1 = ppm(1,i)
+         temp2 = ppm(2,i)
+         ppm(1,i)=temp1*co+temp2*si
+         ppm(2,i)=temp2*co-temp1*si
+      enddo
+
+c     spin around y
+      ran = sprng(rng_stream)
+      ran = ran*twopi
+      co = dcos(ran)
+      si = dsin(ran)
+      do i=1,nclu
+         temp1 = xxm(1,i)
+         temp2 = xxm(3,i)
+         xxm(1,i)=temp1*co+temp2*si
+         xxm(3,i)=temp2*co-temp1*si
+         temp1 = ppm(1,i)
+         temp2 = ppm(3,i)
+         ppm(1,i)=temp1*co+temp2*si
+         ppm(3,i)=temp2*co-temp1*si
+      enddo
+
+c     spin around x
+      ran = sprng(rng_stream)
+      ran = ran*twopi
+      co = dcos(ran)
+      si = dsin(ran)
+      do i=1,nclu
+         temp1 = xxm(2,i)
+         temp2 = xxm(3,i)
+         xxm(2,i)=temp1*co+temp2*si
+         xxm(3,i)=temp2*co-temp1*si
+         temp1 = ppm(2,i)
+         temp2 = ppm(3,i)
+         ppm(2,i)=temp1*co+temp2*si
+         ppm(3,i)=temp2*co-temp1*si
+      enddo
+
+      return
+
+      end
