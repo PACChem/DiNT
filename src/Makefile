@@ -4,9 +4,9 @@
 #POT=exp6
 TINKER=0
 #POT=h3o
-POT=tbplusexp6-2
+#POT=tbplusexp6-2
 #POT=h2oM
-#POT=ch4hALL
+POT=ch4hALL
 #POT=ch4ohALL
 
 #TINKER PES
@@ -41,9 +41,9 @@ endif
   LIBS = $(COMPLIB) $(RNGLIB)
 #  LDFLAGS = -O3 -g -L../../sprng/lib
 #  LDFLAGS = -O3 -g -L../../sprng/lib -L/soft/apps/packages/lapack-3.0/lib
-  LDFLAGS = -O3 -g -L../../sprng/lib -L/usr/lib64 -L/home/ajasper/lib
+  LDFLAGS = -O3 -g -L../../sprng/lib -L/usr/lib64 -L/home/ajasper/lib # change to BLAS/LAPACK locations?
 
-VPATH = ..:../../pot:../../dd_pot:../../autopot
+VPATH = ..:../../pot#:../../dd_pot#:../../autopot
 
 SRC =	$(POT).f \
 	addrot.F \
