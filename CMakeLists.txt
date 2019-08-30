@@ -11,9 +11,9 @@ find_package(BLAS REQUIRED)
 find_package(LAPACK REQUIRED)
 
 add_library(ljlibs  #Lennard-Jones
-    ${PROJECT_SOURCE_DIR}/src/LJ.f)
+    ${PROJECT_SOURCE_DIR}/pot/LJ.f)
 
-#add_library(tbpluslibs  #
+#add_library(tbpluslibs  #TB+exp/6
 #        ${PROJECT_SOURCE_DIR}/pot/tbplusexp6.f
 #        ${PROJECT_SOURCE_DIR}/pot/tbplusexp6dt.f
 #        ${PROJECT_SOURCE_DIR}/pot/tbplusexp6all.f
@@ -46,8 +46,15 @@ add_library(ljlibs  #Lennard-Jones
 #        ${PROJECT_SOURCE_DIR}/pot/ho2n2LSB.f
 #        ${PROJECT_SOURCE_DIR}/pot/ho2n2LSC.f
 #        ${PROJECT_SOURCE_DIR}/pot/ho2n2LSD.f
-#        ${PROJECT_SOURCE_DIR}/pot/ho2n2LSE.f
-#        ${PROJECT_SOURCE_DIR}/pot/j.f)
+#        ${PROJECT_SOURCE_DIR}/pot/ho2n2LSE.f)
+
+#add_library(fhlibs  #Li/NaFH
+#        ${PROJECT_SOURCE_DIR}/pot/LiFHJ.f
+#        ${PROJECT_SOURCE_DIR}/pot/LiFHJx.f
+#        ${PROJECT_SOURCE_DIR}/pot/nafh2d.f
+#        ${PROJECT_SOURCE_DIR}/pot/nafh2v.f
+#        ${PROJECT_SOURCE_DIR}/pot/nafh2d-2d.f)
+
 
 message(STATUS "Found BLAS: ${BLAS_LIBRARIES}")
 message(STATUS "Found LAPACK: ${LAPACK_LIBRARIES}")

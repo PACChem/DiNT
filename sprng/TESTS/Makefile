@@ -29,6 +29,7 @@ INCDIR = ../include
 SRCDIR = ../SRC
 include $(SRCDIR)/make.$(PLAT)
 TESTLIB = sprngtest
+#CFLAGS = -std=c99
 #GMPLIB = -lgmp #uncomment for pmlcg
 
 #############################################################################
