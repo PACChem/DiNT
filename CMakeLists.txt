@@ -5,64 +5,69 @@
 #                                                  #
 ####################################################
 project(DiNT Fortran)
-cmake_minimum_required(VERSION 1.1)
+cmake_minimum_required(VERSION 3.0)
+
+# Define potential to compile
+set(POT
+#"exp6"
+#"h3o"
+#"tbplusexp6-2"
+#"h2oM"
+"ch4hALL"
+#"ch4ohALL"
+
+##TINKER PES
+#NOTE: obj_tinker contains link to mm3 PES
+#NOTE: obj_tinker2 contains link to amoeba09 PES
+#NOTE: obj_tinker3 contains link to oplsaa PES
+#rohMP
+#roohT
+#alkT
+)
+
+set(CMAKE_LIBDIR "${PROJECT_SOURCE_DIR}/lib")
+set(CMAKE_OBJDIR "${PROJECT_SOURCE_DIR}/src/obj_opt")
+#set(CMAKE_INSTALL_DIR "${PROJECT_SOURCE_DIR}/exe")
+set(SPRNG_LIBDIR "${CMAKE_SOURCE_DIR}/sprng/lib")
+
+option(USE_TINKER "Use Tinker software" OFF)
+
+if(USE_TINKER)
+  list(APPEND EXTRA_INCLUDES "/home/ajasper/KTP/dint/tinker/tinker/source")
+endif(USE_TINKER)
 
 find_package(BLAS REQUIRED)
 find_package(LAPACK REQUIRED)
 
-add_library(ljlibs  #Lennard-Jones
-    ${PROJECT_SOURCE_DIR}/pot/LJ.f)
-
-#add_library(tbpluslibs  #TB+exp/6
-#        ${PROJECT_SOURCE_DIR}/pot/tbplusexp6.f
-#        ${PROJECT_SOURCE_DIR}/pot/tbplusexp6dt.f
-#        ${PROJECT_SOURCE_DIR}/pot/tbplusexp6all.f
-#        ${PROJECT_SOURCE_DIR}/pot/tbplusexp6-2.f)
-
-#add_library(ch4libs  #Methane
-#        ${PROJECT_SOURCE_DIR}/pot/ch4hALL.f
-#        ${PROJECT_SOURCE_DIR}/pot/ch4oALL.f
-#        ${PROJECT_SOURCE_DIR}/pot/ch4ohALL.f
-#        ${PROJECT_SOURCE_DIR}/pot/ch4o.f
-#        ${PROJECT_SOURCE_DIR}/pot/ch4oh.f)
-
-#add_library(ch3flibs  #Fluoromethane
-#        ${PROJECT_SOURCE_DIR}/pot/ch3f-rv2.f
-#        ${PROJECT_SOURCE_DIR}/pot/ch3f-rv3aj2.f
-#        ${PROJECT_SOURCE_DIR}/pot/ch3f-rv3aj2st.f
-#        ${PROJECT_SOURCE_DIR}/pot/ch3f-rv3aj.f
-#        ${PROJECT_SOURCE_DIR}/pot/ch3f-rv3.f
-#        ${PROJECT_SOURCE_DIR}/pot/ch3f-rv4.f
-#        ${PROJECT_SOURCE_DIR}/pot/ch3f-rv.f
-#        ${PROJECT_SOURCE_DIR}/pot/ch3f-tmp.f)
-
-#add_library(ho2libs  #HO2
-#        ${PROJECT_SOURCE_DIR}/pot/ho2m.f
-#        ${PROJECT_SOURCE_DIR}/pot/ho2h2oLS2.f
-#        ${PROJECT_SOURCE_DIR}/pot/ho2heLS2.f
-#        ${PROJECT_SOURCE_DIR}/pot/ho2heLS.f
-#        ${PROJECT_SOURCE_DIR}/pot/ho2n2LS.f
-#        ${PROJECT_SOURCE_DIR}/pot/ho2n2LS3C.f
-#        ${PROJECT_SOURCE_DIR}/pot/ho2n2LSB.f
-#        ${PROJECT_SOURCE_DIR}/pot/ho2n2LSC.f
-#        ${PROJECT_SOURCE_DIR}/pot/ho2n2LSD.f
-#        ${PROJECT_SOURCE_DIR}/pot/ho2n2LSE.f)
-
-#add_library(fhlibs  #Li/NaFH
-#        ${PROJECT_SOURCE_DIR}/pot/LiFHJ.f
-#        ${PROJECT_SOURCE_DIR}/pot/LiFHJx.f
-#        ${PROJECT_SOURCE_DIR}/pot/nafh2d.f
-#        ${PROJECT_SOURCE_DIR}/pot/nafh2v.f
-#        ${PROJECT_SOURCE_DIR}/pot/nafh2d-2d.f)
-
-
 message(STATUS "Found BLAS: ${BLAS_LIBRARIES}")
 message(STATUS "Found LAPACK: ${LAPACK_LIBRARIES}")
 
-add_executable(dint-${POT}.x
-    ${PROJECT_SOURCE_DIR}/src/dint.F)
+add_subdirectory("src")
+#add_subdirectory("pot")
+#add_subdirectory("sprng")
+list(APPEND EXTRA_INCLUDES "${CMAKE_SOURCE_DIR}/src")
+list(APPEND EXTRA_INCLUDES "${CMAKE_SOURCE_DIR}/pot")
+list(APPEND EXTRA_INCLUDES "${CMAKE_SOURCE_DIR}/sprng/SRC")
 
-target_link_libraries(dint-${POT}.x 
-        ljlibs ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
+# Include libraries
+#list(APPEND EXTRA_LIBS "${CMAKE_SOURCE_DIR}/pot/libch4libs.a")
+list(APPEND EXTRA_LIBS "${SPRNG_LIBDIR}/libcmrg.a")
+list(APPEND EXTRA_LIBS "${SPRNG_LIBDIR}/liblcg64.a")
+list(APPEND EXTRA_LIBS "${SPRNG_LIBDIR}/liblcg.a")
+list(APPEND EXTRA_LIBS "${SPRNG_LIBDIR}/liblfg.a")
+list(APPEND EXTRA_LIBS "${SPRNG_LIBDIR}/libsprngtest.a")
+#list(APPEND EXTRA_LIBS "${CMAKE_BINARY_DIR}/src/CMakeFiles/objs.dir/")
+#list(APPEND EXTRA_LIBS "${CMAKE_BINARY_DIR}/pot/CMakeFiles/libch4libs.a")
 
-install(TARGETS dint-${POT}.x DESTINATION bin)
+add_executable(dint-${POT}.x $<TARGET_OBJECTS:objs>
+    ${CMAKE_SOURCE_DIR}/src/)
+
+target_link_libraries(dint-${POT}.x PUBLIC
+    ${EXTRA_LIBS} ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
+
+target_include_directories(dint-${POT}.x PUBLIC
+                          "${PROJECT_BINARY_DIR}"
+                          ${EXTRA_INCLUDES}
+                          )
+
+install(TARGETS dint-${POT}.x DESTINATION exe)

@@ -16,3 +16,6 @@ DiNT is a classical trajectory program for computing adiabatic and nonadiabatic 
     
 ## Contact
 Ahren Jasper [ajasper@anl.gov]
+
+#Install
+cmake CMakeLists.txt

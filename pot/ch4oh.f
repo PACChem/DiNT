@@ -929,7 +929,7 @@ c
        enddo
 c
 c  Now, calculate each force constant fkh2o(i) as a function of the
-O-H(I)
+c  O-H(I)
 c  distance, rbh(i)
 c
        do i=1,4
@@ -996,7 +996,7 @@ c
         dstda = fkh2o(i) * (angh2o(i)-anh2oeq)
 c
 c  contributions of d angle / d x adapted from the tinker code
-(eangle1.f)
+c  (eangle1.f)
 c
         xp = tno(2)*tbh(i,3) - tno(3)*tbh(i,2)
         yp = tno(3)*tbh(i,1) - tno(1)*tbh(i,3)
