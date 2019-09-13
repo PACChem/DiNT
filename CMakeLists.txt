@@ -9,65 +9,90 @@ cmake_minimum_required(VERSION 3.0)
 
 # Define potential to compile
 set(POT
-#"exp6"
 #"h3o"
 #"tbplusexp6-2"
 #"h2oM"
 "ch4hALL"
+#"ch4oALL"
 #"ch4ohALL"
 
 ##TINKER PES
 #NOTE: obj_tinker contains link to mm3 PES
 #NOTE: obj_tinker2 contains link to amoeba09 PES
 #NOTE: obj_tinker3 contains link to oplsaa PES
-#rohMP
-#roohT
-#alkT
+#"rohMP"
+#"roohT"
+#"alkT"
 )
 
-set(CMAKE_LIBDIR "${PROJECT_SOURCE_DIR}/lib")
-set(CMAKE_OBJDIR "${PROJECT_SOURCE_DIR}/src/obj_opt")
-#set(CMAKE_INSTALL_DIR "${PROJECT_SOURCE_DIR}/exe")
-set(SPRNG_LIBDIR "${CMAKE_SOURCE_DIR}/sprng/lib")
+# Define locations of directories and libraries
+set(SPRNG_DIR "/home/ajasper/KTP/dint/sprng")
+set(LIB_DIR "/home/moberg/lib")
+set(TINKER_LIB "/home/ajasper/KTP/dint/tinker/tinker")
+set(TINKER_OBJS "/home/ajasper/KTP/dint/src/obj_tinker")
+set(TINKER_OBJS2 "/home/ajasper/KTP/dint/src/obj_tinker2")
+set(TINKER_OBJS3 "/home/ajasper/KTP/dint/src/obj_tinker3")
 
-option(USE_TINKER "Use Tinker software" OFF)
+# Include Tinker?
+option(USE_TINKER "Use Tinker software" 
+#ON
+OFF
+)
 
-if(USE_TINKER)
-  list(APPEND EXTRA_INCLUDES "/home/ajasper/KTP/dint/tinker/tinker/source")
-endif(USE_TINKER)
+#-------------------------------------------------------#
 
 find_package(BLAS REQUIRED)
 find_package(LAPACK REQUIRED)
+
+if(LAPACK_FOUND AND BLAS_FOUND)
+    set(lapackblas_libraries ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
+endif()
 
 message(STATUS "Found BLAS: ${BLAS_LIBRARIES}")
 message(STATUS "Found LAPACK: ${LAPACK_LIBRARIES}")
 
 add_subdirectory("src")
-#add_subdirectory("pot")
-#add_subdirectory("sprng")
 list(APPEND EXTRA_INCLUDES "${CMAKE_SOURCE_DIR}/src")
-list(APPEND EXTRA_INCLUDES "${CMAKE_SOURCE_DIR}/pot")
-list(APPEND EXTRA_INCLUDES "${CMAKE_SOURCE_DIR}/sprng/SRC")
+list(APPEND EXTRA_INCLUDES "${SPRNG_DIR}/SRC")
+list(APPEND EXTRA_INCLUDES "${CMAKE_SOURCE_DIR}/..")
+list(APPEND EXTRA_INCLUDES "${LIB_DIR}")
+list(APPEND EXTRA_INCLUDES "/usr/lib64")
 
-# Include libraries
-#list(APPEND EXTRA_LIBS "${CMAKE_SOURCE_DIR}/pot/libch4libs.a")
-list(APPEND EXTRA_LIBS "${SPRNG_LIBDIR}/libcmrg.a")
-list(APPEND EXTRA_LIBS "${SPRNG_LIBDIR}/liblcg64.a")
-list(APPEND EXTRA_LIBS "${SPRNG_LIBDIR}/liblcg.a")
-list(APPEND EXTRA_LIBS "${SPRNG_LIBDIR}/liblfg.a")
-list(APPEND EXTRA_LIBS "${SPRNG_LIBDIR}/libsprngtest.a")
-#list(APPEND EXTRA_LIBS "${CMAKE_BINARY_DIR}/src/CMakeFiles/objs.dir/")
-#list(APPEND EXTRA_LIBS "${CMAKE_BINARY_DIR}/pot/CMakeFiles/libch4libs.a")
+if(USE_TINKER)
+  list(APPEND EXTRA_INCLUDES "${TINKER_DIR}/source")
+endif(USE_TINKER)
 
-add_executable(dint-${POT}.x $<TARGET_OBJECTS:objs>
-    ${CMAKE_SOURCE_DIR}/src/)
+# Link SPRNG libraries
+#link_directories("${SPRNG_DIR}/lib")
+list(APPEND EXTRA_LIBS "${SPRNG_DIR}/lib/libcmrg.a" "${SPRNG_DIR}/lib/liblcg64.a" "${SPRNG_DIR}/lib/liblcg.a" "${SPRNG_DIR}/lib/liblfg.a" "${SPRNG_DIR}/lib/libsprngtest.a")
+#list(APPEND EXTRA_LIBS "${SPRNG_DIR}/lib/liblcg64.a")
+#list(APPEND EXTRA_LIBS "${SPRNG_DIR}/lib/liblcg.a")
+#list(APPEND EXTRA_LIBS "${SPRNG_DIR}/lib/liblfg.a")
+#list(APPEND EXTRA_LIBS "${SPRNG_DIR}/lib/libsprngtest.a")
 
-target_link_libraries(dint-${POT}.x PUBLIC
-    ${EXTRA_LIBS} ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
+add_executable(dint-${POT}.x $<TARGET_OBJECTS:objs> ${CMAKE_SOURCE_DIR}/src/)
 
-target_include_directories(dint-${POT}.x PUBLIC
-                          "${PROJECT_BINARY_DIR}"
+set(EXTRA_FFLAGS "-O3 -g -L${SPRNG_DIR}/lib -L/usr/lib64 -L${LIB_DIR}")
+set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} ${EXTRA_FFLAGS}")
+#target_link_options(dint-${POT}.x PRIVATE
+#    "-llapack -lablas -lmlfg"
+#)
+if(USE_TINKER)
+#  set(EXTRA_FFLAGS "")
+    target_link_options(dint-${POT}.x PRIVATE "-ffast-math -fopenmp -static-libgcc")
+    list(APPEND EXTRA_LIBS "${TINKER_LIB}/libtinker.a" "${TINKER_LIB}/libfftw3_threads.a" "${TINKER_LIB}/libfftw3.a")
+endif(USE_TINKER)
+
+target_link_libraries(dint-${POT}.x PRIVATE
+    ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES}
+    ${EXTRA_LIBS}
+)
+
+target_include_directories(dint-${POT}.x PRIVATE
                           ${EXTRA_INCLUDES}
                           )
 
 install(TARGETS dint-${POT}.x DESTINATION exe)
+
+#$(LD) $(LDFLAGS) $(OBJ) $(LIBS) -o $(TARG)
+#gfortran -O3 -g -L../../sprng/lib -L/usr/lib64 -L/home/ajasper/lib OBJ -llapack -lblas -lmlfg -o dint-${POT}.x

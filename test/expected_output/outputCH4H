@@ -96,7 +96,7 @@
 
  RNG information
  ---------------
- Random number seed is    299896666
+ Random number seed is    359599137
 
  Trajectory control flags
  -----------------------
@@ -114,7 +114,7 @@
  Zero of energy for this AG is   -19.316029446000002       eV
  Initial conditions prepared using INITx =            5  INITp =            0  and INITj =            1
  INITx = 5: Vibrational thermal state selected initial conditions
- Target temperature is      3976.07283 K
+ Target temperature is      4107.44429 K
 
  Geometry of the stationary point
     # symb  mass (amu)       x (A)       y (A)       z (A)
@@ -129,15 +129,14 @@
  INITp = -1:  Initial momenta determined by INITx
 
  INITj = 1: Thermal state selected J
- Initial Evib+K2 energy is fixed
  Sampled vibrational momenta will be scaled according to the rule: Evib(J)=(A+B*J+C*J^2)*D
- A=   3.0835351379413298       eV
+ A=   3.1854166958330898       eV
  B=   0.0000000000000000       eV
  C=   0.0000000000000000       eV
  D=   1.0000000000000000     
 
- Total angular momentum assigned from a    2000.0000000000000       to    2000.0000000000000       K thermal distribution 
-  and from   19.498290000000001       to    19.498290000000001       hbar with a rotational constants of    4.3348849804121254       cm-1 (x2) and    5.5624425589275921       cm-1 (unique)
+ Total angular momentum assigned from a    1000.0000000000000       to    1000.0000000000000       K thermal distribution 
+  and from   15.846880000000001       to    15.846880000000001       hbar with a rotational constants of    4.3348849804121254       cm-1 (x2) and    5.5624425589275921       cm-1 (unique)
 
  AG            2
  -------
@@ -160,7 +159,7 @@
  Initial separation (A) =    10.000000000000000     
  Impact parameter range (A) =    0.0000000000000000       to    6.0000000000000000     
  Sampled uniformly from 0-bmax^2
- Relative temperature (K) =    2000.0000000000000     
+ Relative temperature (K) =    1000.0000000000000     
 
  Termination condition
  ---------------------
@@ -287,83 +286,83 @@ Energy at this geometry =       -0.0000000000
 
  Generating initial conditions for AG            1
  -------------------------------------------
- Picking initial vibrational states for    3976.0728349203000       K
+ Picking initial vibrational states for    4107.4442889791198       K
  Mode #   Quanta
            1   0.0000000000000000     
-           2   0.0000000000000000     
-           3   0.0000000000000000     
+           2   1.0000000000000000     
+           3   1.0000000000000000     
            4   0.0000000000000000     
            5   3.0000000000000000     
            6   3.0000000000000000     
            7   0.0000000000000000     
-           8   4.0000000000000000     
-           9   8.0000000000000000     
+           8   1.0000000000000000     
+           9   3.0000000000000000     
 
  Placing CoM at origin
 
  Initial coordinates
     # symb       x (A)       y (A)       z (A)
-    1   H     -0.70735     0.86144    -0.11005
-    2   C      0.03398     0.01061     0.06473
-    3   H      0.13130    -0.85238     1.04459
-    4   H     -0.40597    -0.68081    -0.76806
-    5   H      0.57741     0.54539    -0.93723
+    1   H     -0.68632    -0.48374    -0.71769
+    2   C      0.05086    -0.00449    -0.00712
+    3   H     -0.22045     0.93463    -0.23285
+    4   H     -0.48379     0.25283     1.05094
+    5   H      0.78493    -0.65030    -0.01560
 
  INITp = -1:  Inititial momenta selected along with initial coordinates
 
- Calculated temp =   2230.62028  K
- Total KE        =      1.44166  eV
+ Calculated temp =   2985.35452  K
+ Total KE        =      1.92945  eV
 
  Removed CoM motion
- Calculated temp =   2230.62028  K
- Total KE        =      1.44166  eV
+ Calculated temp =   2985.35452  K
+ Total KE        =      1.92945  eV
 
  Removing angular momentum
- Calculated temp =   2203.14186  K
- Total KE        =      1.42390  eV
+ Calculated temp =   2959.99139  K
+ Total KE        =      1.91305  eV
 
  Choosing J
- Selecting J from distribution at    2000.0000000000000      K
- J =    19.500000000000000       hbar and K =  -0.80000000000000004       hbar, selected from    19.498290000000001       to    19.498290000000001       hbar and    2000.0000000000000       K thermal dist
+ Selecting J from distribution at    1000.0000000000000      K
+ J =    15.800000000000001       hbar and K =    7.2000000000000002       hbar, selected from    15.846880000000001       to    15.846880000000001       hbar and    1000.0000000000000       K thermal dist
 
  Calculated rotational constants for this structure: 
-   6.7786147752410386        3.7826972415873503        3.4317171564339426       cm-1
- Symmetrized to    3.6072071990106465       (x2) and    6.7786147752410386       cm-1
+   6.7934475705558794        5.4259170612929957        4.4081564695926883       cm-1
+ Symmetrized to    4.9170367654428420       (x2) and    6.7934475705558794       cm-1
  Input rotational constants: 
    4.3348849804121254       (x2)    5.5624425589275921       cm-1
 
- Choosing orientation of J with K =  -0.80000000000000004     
- Erot(K=0) =   0.16182405097087529       eV
- Erot(K)   =   0.16208956690225404       eV
- EK2       =    2.6551593137873018E-004  eV
+ Choosing orientation of J with K =    7.2000000000000002     
+ Erot(K=0) =   0.16637101862193193       eV
+ Erot(K)   =   0.17548639345134634       eV
+ EK2       =    9.1153748294144077E-003  eV
 
- Initial kinetic energy          =    1.4238989287129293     
- Initial potential energy        =    3.0675502785333761     
- Initial K2 energy               =    2.6551593137873018E-004
- Initial rot energy              =   0.16208956690225404     
- Target energy                   =    3.0835351379413298     
- Scaling factor  0.10506973095230866     
+ Initial kinetic energy          =    1.9130536445300559     
+ Initial potential energy        =    1.7665501165930784     
+ Initial K2 energy               =    9.1153748294144077E-003
+ Initial rot energy              =   0.17548639345134634     
+ Target energy                   =    3.1854166958330898     
+ Scaling factor  0.85843548751243626     
 
  After scaling P
- Calculated temp =     24.32191  K
- Total KE        =      0.01572  eV
- Total KE+V      =      3.08327  eV
- Total KE+V+EK2  =      3.08354  eV
+ Calculated temp =   2181.25165  K
+ Total KE        =      1.40975  eV
+ Total KE+V      =      3.17630  eV
+ Total KE+V+EK2  =      3.18542  eV
 
  Adding rotation
- Total angular momentum          19.50000  au
- Angular momentum components     -0.80000     0.90519   -19.46254  au
- Total rotational energy          0.16209  eV
- Rotational energy components     0.00054     0.00038     0.16117  eV
+ Total angular momentum          15.80000  au
+ Angular momentum components      7.20000   -13.70945     3.13864  au
+ Total rotational energy          0.17549  eV
+ Rotational energy components     0.04366     0.12644     0.00538  eV
 
  Info for this AG only
- Initial potential energy   =      3.06755  eV
- Initial kinetic energy     =      0.17781  eV
- Initial rotational energy  =      0.16209  eV
- Initial vibrational energy =      0.01572  eV
- Initial total energy       =      3.24536  eV
- Initial temp               =    275.11662  K
- Initial angular momentum   =     19.50000  au
+ Initial potential energy   =      1.76655  eV
+ Initial kinetic energy     =      1.58524  eV
+ Initial rotational energy  =      0.17549  eV
+ Initial vibrational energy =      1.40975  eV
+ Initial total energy       =      3.35179  eV
+ Initial temp               =   2452.77473  K
+ Initial angular momentum   =     15.80000  au
 
  Generating initial conditions for AG            2
  -------------------------------------------
@@ -397,68 +396,68 @@ Energy at this geometry =       -0.0000000000
 
  Orienting AG            1
  ------------------
- Sampling from a thermal distribution at T =    2000.0000000000000       K
- Setting initial CoM momenta for this AG     to      0.00000     0.00000    -6.90918  au
+ Sampling from a thermal distribution at T =    1000.0000000000000       K
+ Setting initial CoM momenta for this AG     to      0.00000     0.00000    -6.40945  au
  Setting initial CoM coordinates for this AG to      0.00000     0.00000     0.00000  A
 
  Orienting AG            2
  ------------------
- Impact parameter =    1.5789049709792371       A
- Orbital angular momentum =    20.614909485392115       au
- Orbital energy  =    9.3676227666053095E-003  eV
- Translational energy =   0.36639831451906069       eV
- Total relative energy =   0.37576593728566599       eV
- Total relative temp =    2907.0380268440103       K (target is    2000.0000000000000       K)
- k(T) prefactor =    7.5579614211914109E-009  cm3/s
+ Impact parameter =   0.89588182087784629       A
+ Orbital angular momentum =    10.851014201912122       au
+ Orbital energy  =    2.5954172851577213E-003  eV
+ Translational energy =   0.32077906363280423       eV
+ Total relative energy =   0.32337448091796195       eV
+ Total relative temp =    2501.7220020791860       K (target is    1000.0000000000000       K)
+ k(T) prefactor =    5.3442857728707621E-009  cm3/s
 
- Setting initial CoM momenta for this AG     to      0.00000     0.00000     6.90918  au
- Setting initial CoM coordinates for this AG to      0.00000     1.57890    -9.87457  A
+ Setting initial CoM momenta for this AG     to      0.00000     0.00000     6.40945  au
+ Setting initial CoM coordinates for this AG to      0.00000     0.89588    -9.95979  A
 
 ...exiting ORIENT...
 
 ...entering PREPTRAJ...
 
- Calculated temp =    713.77018385857104       K
- Total KE        =   0.55357484766449527       eV
+ Calculated temp =    2460.9326094437674       K
+ Total KE        =    1.9086120787799055       eV
 
  Placed CoM at origin
- Calculated temp =    713.77018385857104       K
- Total KE        =   0.55357484766449527       eV
+ Calculated temp =    2460.9326094437674       K
+ Total KE        =    1.9086120787799055       eV
 
  Removed CoM motion
- Calculated temp =    713.77018385857104       K
- Total KE        =   0.55357484766449527       eV
+ Calculated temp =    2460.9326094437674       K
+ Total KE        =    1.9086120787799055       eV
 
 ...exiting PREPTRAJ...
 
 ...entering DRIVER...
 
- Initial overall ang momentum =        39.77067  au
- Initial overall rot energy   =         0.03398  eV
- Initial kinetic energy       =         0.55357  eV
- Initial potential energy     =         3.06755  eV
- Initial total energy         =         3.62113  eV
- Initial temp                 =       713.77018  K
+ Initial overall ang momentum =        14.50743  au
+ Initial overall rot energy   =         0.11223  eV
+ Initial kinetic energy       =         1.90861  eV
+ Initial potential energy     =         1.76655  eV
+ Initial total energy         =         3.67516  eV
+ Initial temp                 =      2460.93261  K
 
 
            step       time(fs)           T(K)         KE(eV)         PE(eV)         TE(eV)      Lindemann         <T(K)>   st.dev(T(K))
-              1          1.000     1066.41078        0.82707        2.79405        3.62113        0.00000     1066.41078        0.00000
-            233        176.337       3167.938979882          2.456941153          1.164179463          3.621120616          0.380731268       2734.153960892        738.241267343
+              1          1.000     3012.95373        2.33674        1.33842        3.67516        0.00000     3012.95373        0.00000
+            173        200.508       2859.195567166          2.217490708          1.457671350          3.675162058          0.382099542       2667.511805608        599.542474767
 ...exiting DRIVER...
 
- CPU time for this trajectory is    0.11000 s
+ CPU time for this trajectory is    0.06000 s
 
 ...entering FINALSTATE...
 
  Energy conservation
- Initial total energy =         3.62112576 eV
- Final total energy   =         3.62112062 eV
- Converged to         =    -0.51397943E-05 eV
+ Initial total energy =         3.67516288 eV
+ Final total energy   =         3.67516206 eV
+ Converged to         =    -0.81807648E-06 eV
 
  Angular momentum conservation
- Initial angular mom. =        39.77066571 au
- Final angular mom.   =        39.77066567 au
- Converged to         =    -0.45162295E-07 au
+ Initial angular mom. =        14.50742666 au
+ Final angular mom.   =        14.50742667 au
+ Converged to         =     0.13580605E-07 au
 
  Electronic state population conservation
                                   total              1
@@ -472,52 +471,53 @@ Energy at this geometry =       -0.0000000000
  Final state analysis for TERMFLAG = 3
  Outcome =            1
  Dissociation
- Broke a H -h  bond with atom indices           4  and            6
+ Broke a H -h  bond with atom indices           3  and            6
  Assigning fragment # based on shortest distance to the atoms in the broken bond
- Atom #           1  H  is in fragment           1
+ Atom #           1  H  is in fragment           2
  Atom #           2  C  is in fragment           1
  Atom #           3  H  is in fragment           1
- Atom #           4  H  is in fragment           2
- Atom #           5  H  is in fragment           2
+ Atom #           4  H  is in fragment           1
+ Atom #           5  H  is in fragment           1
  Atom #           6  h  is in fragment           2
 
- Product group            1  has            3  atoms with a mass    14.015649999999999       amu
- Product group            2  has            3  atoms with a mass    3.0234749999999999       amu
+ Product group            1  has            4  atoms with a mass    15.023474999999999       amu
+ Product group            2  has            2  atoms with a mass    2.0156499999999999       amu
 
  RELATIVE
- Final CoM separation           =    2.2011909482437817       A
- Final orbital angular momentum =    59.506663487920967       hbar
- Final relative orbital energy  =   0.61420950901450000       eV
- Final relative trans energy    =   0.10292566782001013       eV
- Delay time                     =    98.446180058127098       fs
- Scattering angle               =    44.417168501888604     
+ Final CoM separation           =    9.0897695822319022       A
+ Final orbital angular momentum =    12.133986071179818       hbar
+ Final relative orbital energy  =    2.0957337688380959E-003  eV
+ Final relative trans energy    =   0.52542091678546132       eV
+ Delay time                     =    80.164815718065100       fs
+ Scattering angle               =    137.42281327919287     
 
  SUPERMOL
- Final kinetic energy           =    2.4569411525688429       eV
- Final potential energy         =    1.1641794633867104       eV
- Final total energy             =    3.6211206159555536       eV
+ Final kinetic energy           =    2.2174907082565545       eV
+ Final potential energy         =    1.4576713496016451       eV
+ Final total energy             =    3.6751620578581994       eV
 
  FRAGMENTS
  Analyzing fragment            1
  Polyatomic (N=>2) fragment
- Final PE for this fragment =    3.2636587970649167     
- Final angular momentum for frag            1  =    23.740727172432393     
- Final rotational energy for frag            1  =   0.70730349781258894     
- Final vib energy for frag            1  =   0.32034473522027390     
- Final kinetic energy for frag            1  =    1.0276482330328629     
- Final total energy for frag            1  =    4.2913070300977800     
+ Final PE for this fragment =    13.360162093739850     
+ Final angular momentum for frag            1  =    19.260564544190942     
+ Final rotational energy for frag            1  =   0.31505284488056173     
+ Final vib energy for frag            1  =   0.91432243451873685     
+ Final kinetic energy for frag            1  =    1.2293752793992985     
+ Final total energy for frag            1  =    14.589537373139148     
 
  Analyzing fragment            2
  Polyatomic (N=>2) fragment
- Final PE for this fragment =   -8.4292865348367165     
- Final angular momentum for frag            2  =    41.160898212122518     
- Final rotational energy for frag            2  =    6.5860551853707483E-002
- Final vib energy for frag            2  =   0.64629719084776238     
- Final kinetic energy for frag            2  =   0.71215774270146992     
- Final total energy for frag            2  =   -7.7171287921352461     
+ Final PE for this fragment =   -10.826600024909714     
+ Found & skipped 1 small Ia, must be a linear molecule
+ Final angular momentum for frag            2  =    2.4568929437589611     
+ Final rotational energy for frag            2  =    2.5838383417510859E-002
+ Final vib energy for frag            2  =   0.43476039488544621     
+ Final kinetic energy for frag            2  =   0.46059877830295698     
+ Final total energy for frag            2  =   -10.366001246606757     
 
 ...exiting FINALSTATE...
 
- CPU time for all trajectories is    0.11000 s or    0.11000 s per trajectory.
+ CPU time for all trajectories is    0.06000 s or    0.06000 s per trajectory.
 
 Well done!

@@ -1,0 +1,11 @@
+%mem=4000000
+# mp2/6-31g* force fchk NoSym Units=bohr scf=(tight,xqc)
+
+Title
+
+0  2
+GEOMETRY
+
+
+
+

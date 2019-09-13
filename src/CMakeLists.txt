@@ -1,3 +1,9 @@
+if(USE_TINKER)
+    set(POT_DIR "${CMAKE_SOURCE_DIR}/dd_pot")
+else()
+    set(POT_DIR "${CMAKE_SOURCE_DIR}/pot")
+endif(USE_TINKER)
+
 set(src_SOURCES 
  addrot.F 	andersen.F 	angmom.f 	ange.f 		atomdiatom.F 	bootstrap.f 
  bsstep.f 	carttojac.f 	checkfrus.f 	checkhop.F 	cn.f 		decocheck.F
@@ -14,12 +20,13 @@ set(src_SOURCES
  rtox.f 	spin.F 		stodeco.F 	takestep.f 	timing.f 	torphi.f 
  turn.f 	turn2.f 	vibwells.F 	vwkb.f 		vwkb2.f 	xptoy.f 
  airy.f
- ${PROJECT_SOURCE_DIR}/pot/${POT}.f
+ ${POT_DIR}/${POT}.f
 )
 
 add_library(objs OBJECT ${src_SOURCES})
-list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/sprng/SRC")
-list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/pot")
-target_link_libraries(objs PUBLIC ${EXTRA_LIBS})
-target_include_directories(objs PUBLIC "${PROJECT_BINARY_DIR}" ${EXTRA_INCLUDES})
-install(TARGETS objs OBJECTS DESTINATION ${CMAKE_OBJDIR})
+list(APPEND EXTRA_INCLUDES "${SPRNG_DIR}/SRC")
+set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -c")
+target_link_libraries(objs PRIVATE ${EXTRA_LIBS})
+target_include_directories(objs PRIVATE
+    ${EXTRA_INCLUDES}
+)
