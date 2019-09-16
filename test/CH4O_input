@@ -1,0 +1,26 @@
+2								POTFLAG: 0=HO-MM-1, 1=3V-2, 2=HE-MM-1, 3=SO-coupled
+ 1 1 0 0								NSURF0, NSURFT, METHFLAG, REPFLAG
+ 0								INTFLAG: 0=BS, 1=RK
+ 1 1.e-7 1000 							HSTEP0, EPS, NPRINT
+ 824484490
+ 1 0 0 0 0								NTRAJ, TFLAG(1): 0=Nothing, 1=P=0 every step, 2=temp rescaling, 3=Andersen thermostat; TFLAG(2): 0=Nothing, 1=restart list of trajectories
+ 2 -23.72101382                                                          NMOL
+ 5 5 0 1 -23.72101382                                                            NATOM, INITx: 0=read cartesians, 1=random spherical, 2=normal mode, 3=atom-diatom, INITp: 0=temperature, 1=zero
+    F 0 5493.90709329313 4.26065021193055 F
+ H        1.007825           1.08872089          -0.00149392           0.10784123
+ C       12.000000          -0.00000627           0.00000303          -0.00001177
+ H        1.007825          -0.46459266          -0.00229897           0.99050787
+ H        1.007825          -0.31104420           0.89504261          -0.54656079
+ H        1.007825          -0.31300912          -0.89128559          -0.55164790
+  -1. F 20.41184 20.41184 1000. 1000. 4.3348849804121254 5.5624425589275921
+  4.26065021193055 0. 0. 1.
+ 1 0 1 0 0.0
+  O     15.994915 0. 0. 0.
+  1 T
+  10. 1000. 0. -6.
+ 3 16000
+  1
+  H O 10.
+ 1 31
+ 
+ 

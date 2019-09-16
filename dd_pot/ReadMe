@@ -1,0 +1,113 @@
+DD notes
+Jasper, Dec 19, 2007
+
+
+I. Templates
+
+Templates should be in the directory where the job is running.
+
+I.A. For NP(i) = 1 (G03)
+
+(1) Test.FChk is read to obtain the energies and derivatives. 
+(2) Required flags in the input template are: FORCE FCHK NOSYM UNITS=BOHR
+(3) GEOMETRY must appear immediately following the charge and multiplicity line. 
+    This string will be replaced with the geometry of interest.
+(4) Gaussian is picky about blank lines, so be careful.
+(5) This option can treat only a single electronic state per template.
+(6) Sample template (7 lines):
+%mem=4000000
+# mp2/6-31g* force fchk NoSym Units=bohr scf=(tight,xqc)
+
+Title
+
+0 2
+GEOMETRY
+
+I.B. For NP(i) = 2 (Molpro 2006)
+
+(1) The standard output is parsed to obtain energies and gradients.
+(2) geomtyp must be set to xyz (Cartesian).
+(3) nosym & noorient are optional.
+(4) The GEOMETRY string must appear next in the template. This string 
+    will be replaced by: a line containing the # of atoms, a generic 
+    title line, and lines specifying the Cartesian coordinates at the 
+    geometry of interest.
+(5) A line containing the word "end" must appear next.
+(6) The input file must contain a line setting the desired energy to 
+    the variable "molpro_energy".
+(7) Derivatives must immediately follow, via Molpro's "force" keyword.
+(8) The program will look for a line containing "GRADIENT FOR STATE" 
+    in the standard output to read gradients.
+(9) For multiple state calls, do both energies and gradients for a
+    state before moving on to the next state.
+(10) Sample two-state template (24 lines):
+***,title
+print,orbitals,civector
+memory,200,m
+
+geomtyp=xyz
+geometry
+nosym
+noorient
+GEOMETRY
+end
+
+basis=vdz
+
+{rhf;wf,21,1,3}
+{multi;occ,12;closed,9;wf,21,1,1;wf,21,1,3
+cpmcscf,grad,1.1,spin=0.5,accu=1.d-7,record=5101.1
+cpmcscf,grad,1.1,spin=1.5,accu=1.d-7,record=5102.1}
+molpro_energy=energy(1)
+{force
+samc,5101.1}
+molpro_energy=energy(2)
+{force
+samc,5102.1}
+---
+
+II. Executables
+
+The code uses executables placed in the directory where the job is running
+to execute the quantum chemistry calculations. Two are needed. They are:
+
+g.x 	G03 job. The entire contents of this file are (5 lines):
+#!/bin/csh
+if (-e Test.FChk) then
+mv -f Test.FChk Test.FChk_1
+endif
+g03 < qc.in > qc.out
+
+m.x	Molpro 2006 job. The entire contents of this file are (1 line):
+molpro -o qc.out -s qc.in
+
+III. Subroutines
+The main file dd.f contains several subroutines:
+pot.f	Main POT call
+	There is a few lines near the top that should be edited to control 
+	which quantum chemistry codes are called.
+		NC = number of separate QC calls per geom
+		NP(i) = QC package to be used for call #i
+		      = 1 for G03.
+		      = 2 for Molpro 2006.
+		NS(i)= number of states for call #i. Must be set to 1 for a 
+				G03 call, i.e., if NP(i)=1. For NP(i)=2 (molpro)
+				simply include multiple energy and gradient
+				calculations in the same input template. Be sure
+				to compute the energy AND forces for a
+				state before moving on to the next state.
+		TNAME(i) = string (max 10 characters) containing the name of the
+				template file for call #i.
+		The interface is HE-MM-1 (potflag=3).
+		subroutine pot(symb,x,y,z,pemd,gpemd,nat,mnat,nsurf,mnsurf)
+
+cfloat.f	FORTRAN utility taken from polyrate that converts a string to a number.
+
+dd_g03.f	Handles G03 calls. Only one surface may be computed per call.
+
+dd_mo6.f	Handles Molpro2006 calls. One more more surfaces may be computed per call.
+		Surfaces are assumed to be diabatic. Diabatic coupling is hard coded.
+
+IV. Future improvements
+(1) Read NA coupling from Molpro.
+
