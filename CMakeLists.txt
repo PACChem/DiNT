@@ -9,24 +9,20 @@ cmake_minimum_required(VERSION 3.0)
 
 # Define potential to compile
 set(POT
-#"h3o"
-#"tbplusexp6-2"
-#"h2oM"
-"ch4hALL"
+"tbplusexp6-2"
+#"ch4hALL"
 #"ch4oALL"
-#"ch4ohALL"
 
 ##TINKER PES
 #NOTE: obj_tinker contains link to mm3 PES
 #NOTE: obj_tinker2 contains link to amoeba09 PES
 #NOTE: obj_tinker3 contains link to oplsaa PES
-#"rohMP"
-#"roohT"
 #"alkT"
 )
 
 # Define locations of directories and libraries
-set(SPRNG_DIR "/home/ajasper/KTP/dint/sprng")
+#set(SPRNG_DIR "/home/ajasper/KTP/dint/sprng")
+set(SPRNG_DIR "/home/moberg/codes/sprng")
 set(LIB_DIR "/home/moberg/lib")
 set(TINKER_LIB "/home/ajasper/KTP/dint/tinker/tinker")
 set(TINKER_OBJS "/home/ajasper/KTP/dint/src/obj_tinker")
