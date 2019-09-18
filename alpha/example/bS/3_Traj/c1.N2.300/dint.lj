@@ -1,0 +1,6 @@
+   CollisionFrequency 
+     LennardJones 
+      Epsilons[1/cm]         192.58556      192.58556
+      Sigmas[angstrom]         3.39852        3.39852
+      Masses[amu]             44.00106       28.00615
+     End      

@@ -1,0 +1,77 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+nbath=1
+elif [[ "$1" == 1 ]]; then
+nbath=1
+elif [[ "$1" == 2 ]]; then
+nbath=2
+else
+echo argument 1 must 1 or 2
+exit 1
+fi
+
+while read -r line
+do
+	tmp=($line)
+	n=${tmp[0]}
+	c=${tmp[1]}
+	if [ "$n" != "" ]; then
+		node[i]=$n
+		cores[i]=$c
+		i=$((i+1))
+		ntot=$((ntot+c))
+	fi
+done < "hostfile"
+
+if [ "${cores[0]}" -lt 6 ]; then
+echo Need at least 6 cores on the first node to run
+exit 1
+fi
+
+echo "Launching 6 jobs on node: ${node[0]}"
+
+cwd=`pwd`
+
+j=0
+while [ $j -lt 1 ]; do  # run on first node only
+k=1
+cat << EOF1 > ${node[$j]}.x
+#!/bin/bash
+
+cd $cwd
+
+EOF1
+
+l=0
+while [ $k -le 6 ]; do
+l=$((l+1))
+dir=cut."$l"
+if [ -d "$dir" ]; then
+exit 2
+fi
+
+### Specialized stuff ###
+cat << EOF >> ${node[$j]}.x
+mkdir $dir
+cp r0/m.x $dir/.
+cp r0/qc.mol $dir/.
+cp minimum.xyz $dir/.
+cd $dir
+/home/ajasper/autofit/exe/cuts-molpro.x $l $nbath < minimum.xyz &
+cd ..
+
+EOF
+### End specialized stuff ###
+
+k=$((k+1))
+done
+cat << EOF2 >> ${node[$j]}.x
+wait
+cp cut.?/fort.8? .
+EOF2
+
+chmod u+x ${node[$j]}.x
+time ssh ${node[$j]} time $cwd/${node[$j]}.x > ${node[$j]}.time &
+j=$((j+1))
+done

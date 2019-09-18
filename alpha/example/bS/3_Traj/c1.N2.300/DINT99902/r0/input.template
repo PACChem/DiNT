@@ -1,0 +1,25 @@
+2
+1 1 0 0
+0
+1 1.e-6 1000
+RANSEED
+NTRAJ 0 0 0 0
+2 ZERO
+NATOM 6 -1 1 ZERO
+ 32000 F xyz.dat ppp.dat F
+GEOMETRY
+ -1. 0. 1000. TEMP TEMP 0.41901 -1.0
+ ENERGY 0. 0. 1.
+BATH
+1 T
+COM 0. 0. BMAX
+3 10000
+1
+cm cm COM
+1 31
+
+
+
+
+3 10000
+ 32000 F xyz.dat ppp.dat F

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+cwd=`pwd`
+scd="$cwd/DINT$$"
+
+sbatch << EOF
+#!/bin/bash
+#SBATCH --job-name=dinttraj
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=36
+#SBATCH -p bdwall
+#SBATCH --time=20:00:00
+#SBATCH -A CMRP
+#SBATCH -o job.%j.%N.out
+source ~/.bash_profile
+cd \$SLURM_SUBMIT_DIR
+echo $cwd
+echo $scd
+mkdir $scd
+cp ./ingen.pl $scd/.
+cp -R r0 $scd/.
+cd $scd
+set OMP_THREAD_LIMIT=1
+export OMP_THREAD_LIMIT=1
+LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/home/ajasper/lib/
+export LD_LIBRARY_PATH
+./ingen.pl 1 36
+./sub-1.x
+cd $cwd
+EOF
