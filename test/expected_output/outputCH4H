@@ -1,0 +1,523 @@
+  **************************************************
+  **                     DiNT                     **
+  **       Direct Nonadiabatic Trajectories       **
+  **                                              **
+  **                 Version 1.0                  **
+  **                June 22, 2010                 **
+  **                                              **
+  **          A. W. Jasper and C. M. Oana         **
+  **         Sandia National Laboratories         **
+  **                     and                      **
+  **                D. G. Truhlar                 **
+  **           University of Minnesota            **
+  **************************************************
+
+...entering READIN...
+
+ Potential interface
+ -------------------
+ POTFLAG =            2
+ Using the POTLIB MM-HE-1 interface
+
+
+
+  J. Espinosa-Garcia and J. C. Corchado                                      
+  Unpublished results, 1999.                                                 
+                                                                             
+                                                                             
+                                                                             
+
+
+   MAX. AND ACTUAL NO. OF EXCITED SURFACES:   0       0
+   MAX. AND ACTUAL ORDER OF DERIVATIVES:      1       1
+
+  The potential routine in POTLIB assumes a
+  default labeling of the atoms.  The user has
+  made the following selection of atomic labels:
+
+               DEFAULT                         USER-SELECTED
+
+  Atom  1 is       H                                   H 
+  Atom  2 is       C                                   C 
+  Atom  3 is       H                                   H 
+  Atom  4 is       H                                   H 
+  Atom  5 is       H                                   H 
+  Atom  6 is       H                                   H 
+
+
+  Atom  1  H  is a member of Reactant #1
+  Atom  2  C  is a member of Reactant #1
+  Atom  3  H  is a member of Reactant #1
+  Atom  4  H  is a member of Reactant #1
+  Atom  5  H  is a member of Reactant #1
+  Atom  6  H  is a member of Reactant #2
+
+  The Potential Energy is Zero for the following
+  geometric arrangement:  The reactants are at
+  their equilibrium geometries, widely separated.
+
+
+  Reactant #1
+  H C H H H 
+
+  Reactant #2
+  H 
+
+  The default units are:
+     BOHR FOR DISTANCE
+     HARTREE FOR ENERGY
+
+
+  The user has chosen units :
+     BOHR                 FOR DISTANCE
+     HARTREE              FOR ENERGY
+
+
+  To reset the zero-of-energy, assign a
+  non-zero value to the variable ANUZERO.
+  The value of ANUZERO will be SUBTRACTED from
+  the energy calculated by this routine.
+
+ Electronic surfaces
+ -------------------
+ Initial electronic surface =            1
+ Number of electronic surfaces =            1
+ REPFLAG =            0
+ The adiabatic representation will be used.
+ METHFLAG = 0:  Single surface propagation
+
+ Integrator information
+ ----------------------
+ INTFLAG =            0
+ Using the Bulirsch-Stoer integrator with 
+ initial HSTEP=   1.0000000000000000       fs
+ and tolerence EPS=   9.9999999999999995E-008
+ Write information every NPRINT=        1000  steps
+
+ RNG information
+ ---------------
+ Random number seed is    359599137
+
+ Trajectory control flags
+ -----------------------
+ Running            1  trajectories
+
+
+ Atom group (AG) specification
+ -----------------------------
+ This is a            2  AG calculation
+ The zero of energy for the supermolecule is   -19.316029446000002       eV
+
+ AG            1
+ -------
+ This AG has            5  atoms (atoms            1  to            5 )
+ Zero of energy for this AG is   -19.316029446000002       eV
+ Initial conditions prepared using INITx =            5  INITp =            0  and INITj =            1
+ INITx = 5: Vibrational thermal state selected initial conditions
+ Target temperature is      4107.44429 K
+
+ Geometry of the stationary point
+    # symb  mass (amu)       x (A)       y (A)       z (A)
+    1   H      1.00782    -4.83110    -5.91626    -5.80743
+    2   C     12.00000    -5.91477    -5.91477    -5.91477
+    3   H      1.00782    -6.37720    -5.91706    -4.92886
+    4   H      1.00782    -6.22442    -5.02374    -6.45888
+    5   H      1.00782    -6.22636    -6.80202    -6.46392
+
+ For INITx = 5, INITp is not used and is set to -1
+
+ INITp = -1:  Initial momenta determined by INITx
+
+ INITj = 1: Thermal state selected J
+ Sampled vibrational momenta will be scaled according to the rule: Evib(J)=(A+B*J+C*J^2)*D
+ A=   3.1854166958330898       eV
+ B=   0.0000000000000000       eV
+ C=   0.0000000000000000       eV
+ D=   1.0000000000000000     
+
+ Total angular momentum assigned from a    1000.0000000000000       to    1000.0000000000000       K thermal distribution 
+  and from   15.846880000000001       to    15.846880000000001       hbar with a rotational constants of    4.3348849804121254       cm-1 (x2) and    5.5624425589275921       cm-1 (unique)
+
+ AG            2
+ -------
+ This AG has            1  atoms (atoms            6  to            6 )
+ Zero of energy for this AG is    0.0000000000000000       eV
+ Initial conditions prepared using INITx =            0  INITp =            1  and INITj =            0
+ INITx = 0:  Reading in initial coordinates:
+    # symb  mass (amu)       x (A)       y (A)       z (A)
+    6   h      1.00782     0.00000     0.00000     0.00000
+
+ INITp = 1:  Initial momenta set to zero
+
+ INITj = 0: Total angular momentum will not be adjusted
+
+ AG orientational prescription
+ -----------------------------
+ Fragment energies will be computed.
+
+ Quasiclassical bimolecular collisions
+ Initial separation (A) =    10.000000000000000     
+ Impact parameter range (A) =    0.0000000000000000       to    6.0000000000000000     
+ Sampled uniformly from 0-bmax^2
+ Relative temperature (K) =    1000.0000000000000     
+
+ Termination condition
+ ---------------------
+ TERMFLAG = 3:  Association/dissociation termination conditions
+ Outcome label      Bond        Distance (A)
+    1               H -h        10.00000   dissociation
+
+ The maximum number of steps per trajectory is        16000
+
+ Output options
+ --------------
+ Writing to units           31
+
+...exiting READIN...
+
+...entering PREMOL...
+
+ Precomputing info for AG            1
+ ------------------------------
+Energy at this geometry =       -0.0000000000
+
+       Atom      x,y,z      Gradient (eV/A)
+         1         1       -0.0000277817
+         1         2        0.0000000311
+         1         3       -0.0000027950
+         2         1        0.0000001833
+         2         2        0.0000002058
+         2         3        0.0000003040
+         3         1        0.0000118119
+         3         2        0.0000000595
+         3         3       -0.0000252720
+         4         1        0.0000078991
+         4         2       -0.0000227175
+         4         3        0.0000138792
+         5         1        0.0000078874
+         5         2        0.0000224211
+         5         3        0.0000138839
+ Magnitude of gradient =    5.5558964825179249E-005  eV/A
+
+ Computing and diagonalizing Hessian...
+
+ doing step            1 ,           1  out of 3,           5
+ doing step            1 ,           2  out of 3,           5
+ doing step            1 ,           3  out of 3,           5
+ doing step            1 ,           4  out of 3,           5
+ doing step            1 ,           5  out of 3,           5
+ doing step            2 ,           1  out of 3,           5
+ doing step            2 ,           2  out of 3,           5
+ doing step            2 ,           3  out of 3,           5
+ doing step            2 ,           4  out of 3,           5
+ doing step            2 ,           5  out of 3,           5
+ doing step            3 ,           1  out of 3,           5
+ doing step            3 ,           2  out of 3,           5
+ doing step            3 ,           3  out of 3,           5
+ doing step            3 ,           4  out of 3,           5
+ doing step            3 ,           5  out of 3,           5
+ Hessian written to unit 70
+    Index  Force Const (mass-scaled Eh/a0^2) Freq(cm-1)
+         1   -0.10657E-04      -16.78109
+         2   -0.23360E-06       -2.48451
+         3   -0.20412E-06       -2.32245
+         4    0.19702E-06        2.28173
+         5    0.11827E-05        5.59051
+         6    0.25631E-05        8.22992
+         7    0.72504E-01     1384.16977
+         8    0.72511E-01     1384.24114
+         9    0.72515E-01     1384.27405
+        10    0.91073E-01     1551.32837
+        11    0.91079E-01     1551.38192
+        12    0.33927E+00     2994.22230
+        13    0.37952E+00     3166.84448
+        14    0.37952E+00     3166.84632
+        15    0.37954E+00     3166.93487
+
+ Keeping 3N-6 modes with largest magnitude frequencies.
+
+      Mode   Freq (1/fs)    ZPE (eV) Freq (cm-1) 
+         1      0.59654      0.19633   3166.93487
+         2      0.59652      0.19632   3166.84632
+         3      0.59652      0.19632   3166.84448
+         4      0.56400      0.18562   2994.22230
+         5      0.29222      0.09617   1551.38192
+         6      0.29221      0.09617   1551.32837
+         7      0.26075      0.08581   1384.27405
+         8      0.26074      0.08581   1384.24114
+         9      0.26073      0.08581   1384.16977
+
+      Mode      Mass-scaled normal mode eigenvectors(Ax,Ay,Az,Bx,...)
+         1     -0.82100      0.00103     -0.08104      0.30056     -0.00183      0.03405     -0.09399     -0.00070      0.24732     -0.06173      0.23766     -0.14284     -0.06041     -0.23168     -0.14095
+         2      0.01021     -0.00710      0.02090     -0.03267     -0.10187      0.28295      0.31865     -0.00549     -0.66460     -0.17357      0.48589     -0.28136     -0.04255     -0.12178     -0.05131
+         3      0.00040     -0.01980     -0.00708      0.00976     -0.28483     -0.10142     -0.11256     -0.02036      0.23440     -0.14654      0.40387     -0.26577      0.22503      0.61912      0.38840
+         4     -0.49729      0.00068     -0.04927     -0.00008     -0.00000     -0.00001      0.21234      0.00105     -0.45277      0.14218     -0.40919      0.24988      0.14307      0.40746      0.25219
+         5     -0.00060     -0.50009     -0.00089      0.00000      0.00006     -0.00000      0.00103      0.49992      0.00164     -0.43497     -0.00056      0.24657      0.43454      0.00051     -0.24732
+         6     -0.04933     -0.00082      0.49783     -0.00000      0.00000     -0.00020      0.45284     -0.00163      0.21233     -0.20160     -0.28730     -0.35582     -0.20190      0.28976     -0.35365
+         7      0.07344     -0.00344      0.07889      0.39978      0.00185     -0.01171     -0.43552     -0.00197     -0.24487     -0.50969     -0.14172      0.10132     -0.50771      0.14076      0.10507
+         8     -0.00081     -0.55820     -0.00384     -0.00177      0.39994      0.00252      0.00099     -0.55843     -0.00034     -0.14596     -0.13088     -0.26447      0.15190     -0.13252      0.25996
+         9     -0.06493     -0.00333      0.54974     -0.01172      0.00246     -0.39977      0.25862     -0.00224      0.04091     -0.07682      0.26517      0.39428     -0.07642     -0.26811      0.39450
+
+ Harmonic turning point info
+      Mode     Q. Number  Energy (eV)  Distance (mass-scaled bohr)
+         1    0.00     0.19633     0.19498
+         2    0.00     0.19632     0.19499
+         3    0.00     0.19632     0.19499
+         4    0.00     0.18562     0.20053
+         5    0.00     0.09617     0.27859
+         6    0.00     0.09617     0.27859
+         7    0.00     0.08581     0.29492
+         8    0.00     0.08581     0.29492
+         9    0.00     0.08581     0.29493
+ HO approximation to the internal energy =    1.2243594849484138      eV
+ HO approximation to the total energy    =    1.2243594849208708      eV
+
+ Precomputing info for AG            2
+ ------------------------------
+ Nothing to do...
+
+...exiting PREMOL...
+
+ CPU time in PREMOL is    0.00000 s
+
+ ***TRAJECTORY            1  OUT OF            1 ***
+
+...entering INITMOL...
+
+ Generating initial conditions for AG            1
+ -------------------------------------------
+ Picking initial vibrational states for    4107.4442889791198       K
+ Mode #   Quanta
+           1   0.0000000000000000     
+           2   1.0000000000000000     
+           3   1.0000000000000000     
+           4   0.0000000000000000     
+           5   3.0000000000000000     
+           6   3.0000000000000000     
+           7   0.0000000000000000     
+           8   1.0000000000000000     
+           9   3.0000000000000000     
+
+ Placing CoM at origin
+
+ Initial coordinates
+    # symb       x (A)       y (A)       z (A)
+    1   H     -0.68632    -0.48374    -0.71769
+    2   C      0.05086    -0.00449    -0.00712
+    3   H     -0.22045     0.93463    -0.23285
+    4   H     -0.48379     0.25283     1.05094
+    5   H      0.78493    -0.65030    -0.01560
+
+ INITp = -1:  Inititial momenta selected along with initial coordinates
+
+ Calculated temp =   2985.35452  K
+ Total KE        =      1.92945  eV
+
+ Removed CoM motion
+ Calculated temp =   2985.35452  K
+ Total KE        =      1.92945  eV
+
+ Removing angular momentum
+ Calculated temp =   2959.99139  K
+ Total KE        =      1.91305  eV
+
+ Choosing J
+ Selecting J from distribution at    1000.0000000000000      K
+ J =    15.800000000000001       hbar and K =    7.2000000000000002       hbar, selected from    15.846880000000001       to    15.846880000000001       hbar and    1000.0000000000000       K thermal dist
+
+ Calculated rotational constants for this structure: 
+   6.7934475705558794        5.4259170612929957        4.4081564695926883       cm-1
+ Symmetrized to    4.9170367654428420       (x2) and    6.7934475705558794       cm-1
+ Input rotational constants: 
+   4.3348849804121254       (x2)    5.5624425589275921       cm-1
+
+ Choosing orientation of J with K =    7.2000000000000002     
+ Erot(K=0) =   0.16637101862193193       eV
+ Erot(K)   =   0.17548639345134634       eV
+ EK2       =    9.1153748294144077E-003  eV
+
+ Initial kinetic energy          =    1.9130536445300559     
+ Initial potential energy        =    1.7665501165930784     
+ Initial K2 energy               =    9.1153748294144077E-003
+ Initial rot energy              =   0.17548639345134634     
+ Target energy                   =    3.1854166958330898     
+ Scaling factor  0.85843548751243626     
+
+ After scaling P
+ Calculated temp =   2181.25165  K
+ Total KE        =      1.40975  eV
+ Total KE+V      =      3.17630  eV
+ Total KE+V+EK2  =      3.18542  eV
+
+ Adding rotation
+ Total angular momentum          15.80000  au
+ Angular momentum components      7.20000   -13.70945     3.13864  au
+ Total rotational energy          0.17549  eV
+ Rotational energy components     0.04366     0.12644     0.00538  eV
+
+ Info for this AG only
+ Initial potential energy   =      1.76655  eV
+ Initial kinetic energy     =      1.58524  eV
+ Initial rotational energy  =      0.17549  eV
+ Initial vibrational energy =      1.40975  eV
+ Initial total energy       =      3.35179  eV
+ Initial temp               =   2452.77473  K
+ Initial angular momentum   =     15.80000  au
+
+ Generating initial conditions for AG            2
+ -------------------------------------------
+ INITx = 0:  Initial coordinates are specified by the user
+ Placing CoM at origin
+
+ Initial coordinates
+    # symb       x (A)       y (A)       z (A)
+    6   h      0.00000     0.00000     0.00000
+
+ INITp = 1:  Setting initial momenta to zero
+ Calculated temp =      0.00000  K
+ Total KE        =      0.00000  eV
+
+ Removed CoM motion
+ Calculated temp =      0.00000  K
+ Total KE        =      0.00000  eV
+
+ Info for this AG only
+ Initial potential energy   =      0.00000  eV
+ Initial kinetic energy     =      0.00000  eV
+ Initial rotational energy  =      0.00000  eV
+ Initial vibrational energy =      0.00000  eV
+ Initial total energy       =      0.00000  eV
+ Initial temp               =      0.00000  K
+ Initial angular momentum   =      0.00000  au
+
+...exiting INITMOL...
+
+...entering ORIENT...
+
+ Orienting AG            1
+ ------------------
+ Sampling from a thermal distribution at T =    1000.0000000000000       K
+ Setting initial CoM momenta for this AG     to      0.00000     0.00000    -6.40945  au
+ Setting initial CoM coordinates for this AG to      0.00000     0.00000     0.00000  A
+
+ Orienting AG            2
+ ------------------
+ Impact parameter =   0.89588182087784629       A
+ Orbital angular momentum =    10.851014201912122       au
+ Orbital energy  =    2.5954172851577213E-003  eV
+ Translational energy =   0.32077906363280423       eV
+ Total relative energy =   0.32337448091796195       eV
+ Total relative temp =    2501.7220020791860       K (target is    1000.0000000000000       K)
+ k(T) prefactor =    5.3442857728707621E-009  cm3/s
+
+ Setting initial CoM momenta for this AG     to      0.00000     0.00000     6.40945  au
+ Setting initial CoM coordinates for this AG to      0.00000     0.89588    -9.95979  A
+
+...exiting ORIENT...
+
+...entering PREPTRAJ...
+
+ Calculated temp =    2460.9326094437674       K
+ Total KE        =    1.9086120787799055       eV
+
+ Placed CoM at origin
+ Calculated temp =    2460.9326094437674       K
+ Total KE        =    1.9086120787799055       eV
+
+ Removed CoM motion
+ Calculated temp =    2460.9326094437674       K
+ Total KE        =    1.9086120787799055       eV
+
+...exiting PREPTRAJ...
+
+...entering DRIVER...
+
+ Initial overall ang momentum =        14.50743  au
+ Initial overall rot energy   =         0.11223  eV
+ Initial kinetic energy       =         1.90861  eV
+ Initial potential energy     =         1.76655  eV
+ Initial total energy         =         3.67516  eV
+ Initial temp                 =      2460.93261  K
+
+
+           step       time(fs)           T(K)         KE(eV)         PE(eV)         TE(eV)      Lindemann         <T(K)>   st.dev(T(K))
+              1          1.000     3012.95373        2.33674        1.33842        3.67516        0.00000     3012.95373        0.00000
+            173        200.508       2859.195567166          2.217490708          1.457671350          3.675162058          0.382099542       2667.511805608        599.542474767
+...exiting DRIVER...
+
+ CPU time for this trajectory is    0.06000 s
+
+...entering FINALSTATE...
+
+ Energy conservation
+ Initial total energy =         3.67516288 eV
+ Final total energy   =         3.67516206 eV
+ Converged to         =    -0.81807648E-06 eV
+
+ Angular momentum conservation
+ Initial angular mom. =        14.50742666 au
+ Final angular mom.   =        14.50742667 au
+ Converged to         =     0.13580605E-07 au
+
+ Electronic state population conservation
+                                  total              1
+ Initial populations  =         1.00000        1.00000
+ Final populations    =         1.00000        1.00000
+ Converged to         =     0.00000000E+00
+
+ Initial electronic state  =           1
+ Final electronic state    =           1
+
+ Final state analysis for TERMFLAG = 3
+ Outcome =            1
+ Dissociation
+ Broke a H -h  bond with atom indices           3  and            6
+ Assigning fragment # based on shortest distance to the atoms in the broken bond
+ Atom #           1  H  is in fragment           2
+ Atom #           2  C  is in fragment           1
+ Atom #           3  H  is in fragment           1
+ Atom #           4  H  is in fragment           1
+ Atom #           5  H  is in fragment           1
+ Atom #           6  h  is in fragment           2
+
+ Product group            1  has            4  atoms with a mass    15.023474999999999       amu
+ Product group            2  has            2  atoms with a mass    2.0156499999999999       amu
+
+ RELATIVE
+ Final CoM separation           =    9.0897695822319022       A
+ Final orbital angular momentum =    12.133986071179818       hbar
+ Final relative orbital energy  =    2.0957337688380959E-003  eV
+ Final relative trans energy    =   0.52542091678546132       eV
+ Delay time                     =    80.164815718065100       fs
+ Scattering angle               =    137.42281327919287     
+
+ SUPERMOL
+ Final kinetic energy           =    2.2174907082565545       eV
+ Final potential energy         =    1.4576713496016451       eV
+ Final total energy             =    3.6751620578581994       eV
+
+ FRAGMENTS
+ Analyzing fragment            1
+ Polyatomic (N=>2) fragment
+ Final PE for this fragment =    13.360162093739850     
+ Final angular momentum for frag            1  =    19.260564544190942     
+ Final rotational energy for frag            1  =   0.31505284488056173     
+ Final vib energy for frag            1  =   0.91432243451873685     
+ Final kinetic energy for frag            1  =    1.2293752793992985     
+ Final total energy for frag            1  =    14.589537373139148     
+
+ Analyzing fragment            2
+ Polyatomic (N=>2) fragment
+ Final PE for this fragment =   -10.826600024909714     
+ Found & skipped 1 small Ia, must be a linear molecule
+ Final angular momentum for frag            2  =    2.4568929437589611     
+ Final rotational energy for frag            2  =    2.5838383417510859E-002
+ Final vib energy for frag            2  =   0.43476039488544621     
+ Final kinetic energy for frag            2  =   0.46059877830295698     
+ Final total energy for frag            2  =   -10.366001246606757     
+
+...exiting FINALSTATE...
+
+ CPU time for all trajectories is    0.06000 s or    0.06000 s per trajectory.
+
+Well done!
