@@ -9,8 +9,9 @@ cmake_minimum_required(VERSION 3.0)
 
 # Define potential to compile
 set(POT
-"tbplusexp6-2"
-#"ch4hALL"
+#"tbplusexp6-2"
+#"tbplusexp6all"
+"ch4hALL"
 #"ch4oALL"
 
 ##TINKER PES

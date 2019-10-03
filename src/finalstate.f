@@ -239,8 +239,8 @@ c     we hit the max steps before we dissociated
           endif
         endif
 c H2O+2AR HACK TEMP AJ
-        if (i.le.3) ifrag=1
-        if (i.gt.3) ifrag=2
+c        if (i.le.3) ifrag=1
+c        if (i.gt.3) ifrag=2
 c H2O+2AR HACK TEMP AJ
         write(6,*)"Atom #",i," ",symbol(i)," is in fragment",ifrag
         nfrag(ifrag) = nfrag(ifrag) + 1

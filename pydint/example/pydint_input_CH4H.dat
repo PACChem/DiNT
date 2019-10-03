@@ -1,0 +1,53 @@
+$trajectory
+potential = tbplusexp6all
+pot_flag = 2
+nsurf0 = 1
+nsurf1 = 1
+methflag = 0
+repflag = 0
+intflag = 1
+hstep0 = 0.25
+eps = 1.e-7
+nprint = 1000
+ranseed = 1119195
+ntraj = 100
+tflag1 = 0
+tflag2 = 0
+tflag3 = 0
+tflag4 = 0
+$end
+
+$atom_groups
+nmol = 2
+ezero = -19.316029446
+
+$$AG1
+H        1.007825          -4.83110117          -5.91625763          -5.80742547
+C       12.000000          -5.91476968          -5.91476968          -5.91476968
+H        1.007825          -6.37720113          -5.91705893          -4.92886180
+H        1.007825          -6.22441700          -5.02374236          -6.45887564
+H        1.007825          -6.22635943          -6.80201981          -6.46391583
+natom = 5
+initx = 5
+initp = 0
+initj = 1
+ezero_i = -19.316029446
+$$endAG
+
+$$AG2
+h     1.007825 0. 0. 0.
+natom = 1
+initx = 1
+initp = 0
+initj = 0
+ezero_i = 0.0
+$$endAG
+
+$end
+
+$collision
+termflag = 1
+tnstep = 2490
+ioutput = 2
+ilist = 80 81
+$end
