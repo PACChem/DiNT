@@ -62,10 +62,6 @@ endif(USE_TINKER)
 # Link SPRNG libraries
 #link_directories("${SPRNG_DIR}/lib")
 list(APPEND EXTRA_LIBS "${SPRNG_DIR}/lib/libcmrg.a" "${SPRNG_DIR}/lib/liblcg64.a" "${SPRNG_DIR}/lib/liblcg.a" "${SPRNG_DIR}/lib/liblfg.a" "${SPRNG_DIR}/lib/libsprngtest.a")
-#list(APPEND EXTRA_LIBS "${SPRNG_DIR}/lib/liblcg64.a")
-#list(APPEND EXTRA_LIBS "${SPRNG_DIR}/lib/liblcg.a")
-#list(APPEND EXTRA_LIBS "${SPRNG_DIR}/lib/liblfg.a")
-#list(APPEND EXTRA_LIBS "${SPRNG_DIR}/lib/libsprngtest.a")
 
 add_executable(dint-${POT}.x $<TARGET_OBJECTS:objs> ${CMAKE_SOURCE_DIR}/src/)
 

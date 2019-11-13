@@ -25,9 +25,36 @@ def write_input(job_dir_path, nsamp,
         input_file.write(inp_str)
 
 
-def write_inp_traj()
+def write_inp_traj(job_dir_path, )
+    
+    potflag
+    nsurf0
+    nsurft
+    methflag
+    repflag
+    intflag
+    if intflag == 0:
+    elif intflag == 1:
+    
+    if ranseed == Null:
+        ranseed = random.randrange(1E8, 1E9)
+
+    ntraj
+    for i in range(1,5):
+        tflagi = 
 
 def write_inp_ags()
+    nmol
+    ezero
+    for i in range(nmol):
+        natom = 
+        initx = 
+        if initx == 0:
+            for j in range(natom):
+                 sym mass xx
+        initp = 
+        initj = 
+        ezero_i = 
 
 def write_inp_coll()
 

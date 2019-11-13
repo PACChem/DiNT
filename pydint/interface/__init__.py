@@ -2,17 +2,25 @@
 python interface to DiNT
 """
 
-from pydint.interface.writer import dint_input
+from pydint.interface.writer import dint_inp_1
+from pydint.interface.writer import dint_inp_2
+from pydint.interface.writer import dint_inp_3
+from pydint.interface.writer import dint_intflag_fill
+from pydint.interface.writer import dint_tflag_fill
+from pydint.interface.writer import dint_inp_mol
+from pydint.interface.writer import dint_iorient_fill
+from pydint.interface.writer import dint_termflag_fill
 from pydint.interface.writer import submission_script
-from pydint.interface.reader import lennard_jones
-from pydint.interface.util import roundify_geometry
-from pydint.interface.util import combine_params
 
 
 __all__ = [
- 'dint_input',
- 'submission_script',
- 'lennard_jones',
- 'roundify_geometry',
- 'combine_params'
+ 'dint_inp_1',
+ 'dint_inp_2',
+ 'dint_inp_3',
+ 'dint_intflag_fill',
+ 'dint_tflag_fill',
+ 'dint_inp_mol',
+ 'dint_iorient_fill',
+ 'dint_termflag_fill',
+ 'submission_script'
 ]

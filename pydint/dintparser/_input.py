@@ -19,60 +19,60 @@ from autoparse.pattern import NEWLINE
 
 INPUT_SUPPORTED_SECTIONS = [
     'trajectory',
-    'collision',
-    'atom_groups'
+    'atom_groups',
+    'collision'
 ]
 INPUT_REQUIRED_SECTIONS = [
     'trajectory',
-    'collision',
-    'atom_groups'
+    'atom_groups',
+    'collision'
 ]
 
 DINT_SUPPORTED_KEYWORDS = [
-    'pot_flag',					#Record 1
-    'nsurf0', 'nsurft', 'methflag', 'repflag',	#Record 2
-    'intflag',					#Record 3
-    'hstep', 'eps', 'nprint',			#Record 3.0/1
-    'ranseed',					#Record 4
-    'ntraj', 'tflag1', 'tflag2', 'tflag3', 'tflag4',#Record 5
-#    'ramptime', 'rampfact', 'nramp',		#Record 5.1
-#    'andersen_temp', 'andersen_freq', 'scandth',#Record 5.2
-#    'trajlist',					#Record 5.3
-#    'ntarget', 'ephoton', 'wphoton',		#Record 5.4
-    'nmol', 'ezero',				#Record 6
-    'natom', 'initx', 'initp', 'initj', 'ezero_i',#Record 7
-    'target_mass_xyz',				#Record 8.0
-#    'rdum',					#Record 8.1.1
-    'target_mass',				#Record 8.1.2
-#    'lreadhess', 'nmtype', 'nmqn',		#Record 8.2.1
-    'escatad', 'vvad', 'jjad', 'rrad', 'arrad',	#Record 8.3.2
-    'temp0im', 'scale0im',			#Record 8.5.1
-#    'samptot', 'lbinsamp', 'sampfilexx', 'sampfilepp',#Record 8.6.1
-    'escale0im',				#Record 9.0
+    'pot_flag',					                        #Record 1
+    'nsurf0', 'nsurf1', 'methflag', 'repflag',	        #Record 2
+    'intflag',					                        #Record 3
+    'hstep', 'eps', 'nprint',			                    #Record 3.0/1
+    'ranseed',					                        #Record 4
+    'ntraj', 'tflag1', 'tflag2', 'tflag3', 'tflag4',    #Record 5
+#    'ramptime', 'rampfact', 'nramp',		                #Record 5.1
+#    'andersen_temp', 'andersen_freq', 'scandth',           #Record 5.2
+#    'trajlist',					                        #Record 5.3
+#    'ntarget', 'ephoton', 'wphoton',		                #Record 5.4
+    'nmol', 'ezero',				                    #Record 6
+    'natom', 'initx', 'initp', 'initj', 'ezero_i',      #Record 7
+    'target_mass_xyz',		                    		#Record 8.0
+#    'rdum',			                        		    #Record 8.1.1
+    'target_mass',			                        	    #Record 8.1.2
+#    'lreadhess', 'nmtype', 'nmqn',	                	    #Record 8.2.1
+    'escatad', 'vvad', 'jjad', 'rrad', 'arrad',	            #Record 8.3.2
+    'temp0im', 'scale0im',			                        #Record 8.5.1
+#    'samptot', 'lbinsamp', 'sampfilexx', 'sampfilepp',     #Record 8.6.1
+    'escale0im',				                        #Record 9.0
     'samptarg', 'letot', 'sampjmin', 'sampjmax', 
-    'sampjtemp1', 'sampjtemp2', 'sampbrot1', 'sampbrot2',#Record 10.1
-    'ejsc',					#Record 10.1.2
-    'iorient', 'ldofrag',			#Record 11
-#    'xx', 'pp',					#Record 11.0.1/2
-    'rel0qc', 'ttt', 'bminqc', 'bmaxqc',	#Record 11.1
-    'termflag', 'tnstep',			#Record 12
-#    'tstime',					#Record 12.1
-#    'tgradmag',					#Record 12.2
-    'tnoutcome', 'tsymb1', 'tsymb2', 'distcut',	#Record 12.3
-    'ioutput', 'ilist'				#Record 13
+    'sampjtemp1', 'sampjtemp2', 'sampbrot1', 'sampbrot2',   #Record 10.1
+    'ejsc',					                                #Record 10.1.2
+    'iorient', 'ldofrag',			                    #Record 11
+#    'xx', 'pp',					                        #Record 11.0.1/2
+    'rel0qc', 'ttt', 'bminqc', 'bmaxqc',	                #Record 11.1
+    'termflag', 'tnstep',			                    #Record 12
+#    'tstime',					                            #Record 12.1
+#    'tgradmag',					                        #Record 12.2
+    'tnoutcome', 'tsymb1', 'tsymb2', 'distcut',         	#Record 12.3
+    'ioutput', 'ilist'				                    #Record 13
 ]
 DINT_REQUIRED_KEYWORDS = [
-    'pot_flag',					#Record 1
-    'nsurf0', 'nsurft', 'methflag', 'repflag',	#Record 2
-    'intflag',					#Record 3
-    'hstep0', 'nprint',				#Record 3.0/1
-#    'ranseed',					#Record 4
-    'ntraj', 'tflag1', 'tflag2', 'tflag3', 'tflag4',#Record 5
-    'nmol', 'ezero',				#Record 6
-    'natom', 'initx', 'initp', 'initj', 'ezero_i',#Record 7
-#    'iorient', 'ldofrag',			#Record 11
-    'termflag', 'tnstep',			#Record 12
-    'ioutput'					#Record 13
+    'pot_flag',					                        #Record 1
+    'nsurf0', 'nsurf1', 'methflag', 'repflag',      	#Record 2
+    'intflag',					                        #Record 3
+    'hstep0', 'nprint',			                        	#Record 3.0/1
+    'ranseed',				                        	#Record 4
+    'ntraj', 'tflag1', 'tflag2', 'tflag3', 'tflag4',    #Record 5
+    'nmol', 'ezero',			                    	#Record 6
+    'natom', 'initx', 'initp', 'initj', 'ezero_i',      #Record 7
+    'iorient', 'ldofrag',	                        	#Record 11
+    'termflag', 'tnstep',		                    	#Record 12
+    'ioutput'			                        		#Record 13
 ]
 
 
@@ -107,9 +107,9 @@ def read_pot_flag(input_string):
     return keyword
 
 
-def read_nsurf(input_string,input_ns): #CHECK
+def read_nsurf(input_string,input_integer): #CHECK
     """ obtain the electronic surfaces to be used """
-    pattern = ('nsurf' + str(input_ns) +
+    pattern = ('nsurf' + input_integer +
                zero_or_more(SPACE) + '=' + zero_or_more(SPACE) +
                capturing(INTEGER))
     block = _get_trajectory_options_section(input_string)
@@ -229,7 +229,7 @@ def read_ntraj(input_string):
 
 def read_tflags(input_string,input_integer):
     """ obtain the trajectory flag options to be used """
-    pattern = ('tflag' + str(nput_integer) +
+    pattern = ('tflag' + input_integer +
                zero_or_more(SPACE) + '=' + zero_or_more(SPACE) +
                capturing(INTEGER))
     block = _get_trajectory_options_section(input_string)
