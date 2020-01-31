@@ -23,6 +23,11 @@ set(src_SOURCES
  ${POT_DIR}/${POT}.f
 )
 
+if(USE_MPI)
+    list(APPEND EXTRA_INCLUDES "${MPI_INCLUDE_PATH}")
+    list(APPEND EXTRA_LIBS "${MPI_Fortran_LIBRARIES}")
+endif()
+
 add_library(objs OBJECT ${src_SOURCES})
 list(APPEND EXTRA_INCLUDES "${SPRNG_DIR}/SRC")
 set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -c")
