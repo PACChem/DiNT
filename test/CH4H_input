@@ -1,7 +1,7 @@
 2								POTFLAG: 0=HO-MM-1, 1=3V-2, 2=HE-MM-1, 3=SO-coupled
  1 1 0 0								NSURF0, NSURFT, METHFLAG, REPFLAG
  0								INTFLAG: 0=BS, 1=RK
- 1 1.e-7 1000 							HSTEP0, EPS, NPRINT
+ 1 1.e-7 1 							HSTEP0, EPS, NPRINT
  359599137
  1 0 0 0 0								NTRAJ, TFLAG(1): 0=Nothing, 1=P=0 every step, 2=temp rescaling, 3=Andersen thermostat; TFLAG(2): 0=Nothing, 1=restart list of trajectories
  2 -19.316029446                                                          NMOL
@@ -18,9 +18,9 @@
   h     1.007825 0. 0. 0.
   1 T
   10. 1000. 0. -6.
- 3 16000
+ 3 25000
   1
   H h 10.
- 1 31
+ 3 31 80 81
  
  

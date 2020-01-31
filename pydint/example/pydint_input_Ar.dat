@@ -1,0 +1,39 @@
+$trajectory
+potential = tbplusexp6all
+pot_flag = 2
+nsurf0 = 1
+nsurf1 = 1
+methflag = 0
+repflag = 0
+intflag = 1
+hstep0 = 0.25
+nprint = 10
+ranseed = 3789213
+ntraj = 1
+tflag1 = 3
+tflag2 = 0
+tflag3 = 0
+tflag4 = 0
+$end
+
+$atom_groups
+nmol = 1
+ezero = 0.
+
+$$AG1
+Ar 39.962383  0. 0. 0.
+natom = 1
+initx = 0
+initp = 0
+initj = 0
+ezero_i = 0.
+$$endAG
+
+$end
+
+$collision
+termflag = 0
+tnstep = 2490
+ioutput = 2
+ilist = 80 81
+$end

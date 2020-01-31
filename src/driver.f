@@ -92,6 +92,8 @@ c initialize for this trajectory
       istepw = 0
       step = 0.d0
 
+c PIMD/RPMD add initialization
+
 c calculate and save initial values of things for later analysis
 c     initial coordinates and momenta
       do i=1,nat

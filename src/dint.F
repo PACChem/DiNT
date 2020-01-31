@@ -15,18 +15,14 @@ c     FINALSTATE is called after each trajectory to write some data.
       integer im,initrng,minitrng,i,ia
       double precision t1,t2,t3,cputime,t3old,r
 
-
-
       call header
-
-
-
+ 
       write(6,'("...entering READIN...",/)')
       call readin
       write(6,'("...exiting READIN...",/)')
-
-
-
+ 
+ 
+ 
       call timing(t1)
       write(6,'("...entering PREMOL...",/)')
 c     prepare each molecule
@@ -39,7 +35,7 @@ c     initialize electronic coordinates
       write(6,'("...exiting PREMOL...",/)')
       call timing(t2)
       write(6,'(" CPU time in PREMOL is ",f10.5," s",/)')(t2-t1)
-
+    
 c     redirect for N(E)
       if (methflag.eq.10) then
       initrng=1
@@ -51,20 +47,23 @@ c     redirect for N(E)
       
       t3 = 0.d0
       cputime = 0.d0
+c     run only on head process
+
 c     loop over trajectories
       nistep=0
       nistepw=0
+
       do itraj=1,ntraj
 
       write(6,*)"***TRAJECTORY ",itraj," OUT OF ",ntraj,"***"
       write(6,*)
 
       if (tflag(2).eq.1) then
-      write(6,*)"Restarting trajectory #",trajlist(itraj)
-      write(6,*)
-      initrng = trajlist(itraj)-1
+          write(6,*)"Restarting trajectory #",trajlist(itraj)
+          write(6,*)
+          initrng = trajlist(itraj)-1
       else
-      initrng = itraj-1
+          initrng = itraj-1
       endif
 
 c     initialize this trajectory
@@ -118,5 +117,4 @@ c     from ransamp.F
      & cputime,cputime/dble(ntraj)
 
  999  write(6,'("Well done!")')
-
       end
